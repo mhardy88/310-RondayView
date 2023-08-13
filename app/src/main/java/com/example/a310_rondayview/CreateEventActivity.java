@@ -50,6 +50,8 @@ public class CreateEventActivity extends AppCompatActivity {
                 }
         );
 
+        //select image onClickListener set up this way instead of StartActivityForResult as the method
+        //has been deprecated
         vh.choose_image_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
