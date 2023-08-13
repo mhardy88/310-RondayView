@@ -19,6 +19,8 @@ import android.widget.Toast;
 
 public class CreateEventActivity extends AppCompatActivity {
 
+    ActivityResultLauncher<String> selectPhoto;
+
     private class ViewHolder {
         Button choose_image_btn;
         ImageView event_image_img;
@@ -38,23 +40,22 @@ public class CreateEventActivity extends AppCompatActivity {
 
         vh = new ViewHolder();
 
+        selectPhoto = registerForActivityResult(
+                new ActivityResultContracts.GetContent(),
+                new ActivityResultCallback<Uri>() {
+                    @Override
+                    public void onActivityResult(Uri result) {
+                        vh.event_image_img.setImageURI(result);
+                    }
+                }
+        );
+
         vh.choose_image_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent selectImageIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(selectImageIntent, 3);
+                selectPhoto.launch("image/*");
             }
         });
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        vh = new ViewHolder();
-        if(resultCode == RESULT_OK && data != null){
-            Uri selectedImage = data.getData();
-            vh.event_image_img.setImageURI(selectedImage);
-        }
     }
 
 }

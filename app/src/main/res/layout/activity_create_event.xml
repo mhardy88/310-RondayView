@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                     android:layout_height="48dp"
                     android:layout_marginBottom="8dp"
                     android:hint="Club Name"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="text" />
 
             </LinearLayout>
 
@@ -59,49 +59,22 @@
                 android:layout_height="wrap_content"
                 android:text="Choose Image"/>
 
-            <LinearLayout
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="8dp"
+                android:hint="Event Title"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/editTextText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Title: "
-                    android:textSize="24dp" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginBottom="8dp"
-                    android:hint="Event Title"
-                    android:inputType="textEmailAddress" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Location: "
-                    android:textSize="18dp" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginBottom="8dp"
-                    android:hint="Event Title"
-                    />
-
-            </LinearLayout>
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Location" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -110,21 +83,39 @@
                 android:layout_marginBottom="8dp"
                 android:orientation="horizontal">
 
-                <TextView
+                <EditText
+                    android:id="@+id/editTextDate2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Time:  "
-                    android:textSize="18dp" />
+                    android:ems="10"
+                    android:inputType="date"
+                    android:hint="Date"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10dp"/>
 
                 <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginBottom="8dp"
-                    android:hint="Time" />
-
-
+                    android:id="@+id/editTextTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="time"
+                    android:hint="Time"
+                    android:layout_marginLeft="10dp"/>
 
             </LinearLayout>
+
+            <EditText
+                android:id="@+id/editTextTextMultiLine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:lines="5"
+                android:maxLines="5"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:hint="Description"/>
+
 
         </LinearLayout>
 
@@ -159,4 +150,4 @@
 
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>
